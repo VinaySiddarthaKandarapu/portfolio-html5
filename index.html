@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kandarapu Vinay Siddartha – Web Developer portfolio showcasing projects, skills, and contact information." />
+    <meta name="keywords" content="web developer, HTML5, CSS3, JavaScript, portfolio, Kandarapu Vinay Siddartha" />
+    <meta name="author" content="Kandarapu Vinay Siddartha" />
+    <meta property="og:title" content="Kandarapu Vinay Siddartha | Web Developer" />
+    <meta property="og:description" content="Portfolio of Kandarapu Vinay Siddartha – Web Developer & Thiranex Intern" />
+    <meta property="og:type" content="website" />
+    <title>Kandarapu Vinay Siddartha | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+         :root {
+            --primary: #1a56db;
+            --accent: #06b6d4;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --muted: #64748b;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        /* Skip link for accessibility */
+        
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 6px 6px;
+            font-weight: 700;
+            z-index: 9999;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            left: 1rem;
+            width: auto;
+            height: auto;
+        }
+        /* Header / Nav */
+        
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary);
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        /* Hero */
+        
+        #hero {
+            background: linear-gradient(135deg, #1a56db 0%, #06b6d4 100%);
+            color: #fff;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+        
+        #hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        #hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+        /* Sections */
+        
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 4rem 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .section-divider {
+            width: 48px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+        /* About */
+        
+        #about p {
+            color: var(--muted);
+            max-width: 700px;
+            font-size: 1.05rem;
+        }
+        /* Skills */
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        /* Projects */
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        article.card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+        
+        article.card:hover {
+            box-shadow: 0 4px 20px rgba(26, 86, 219, 0.12);
+        }
+        
+        article.card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        article.card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        
+        .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .card-link:hover,
+        .card-link:focus {
+            text-decoration: underline;
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        /* Contact Form */
+        
+        form {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        
+        label {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        input,
+        textarea {
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            background: var(--card);
+            color: var(--text);
+        }
+        
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            outline: 2px solid var(--primary);
+            outline-offset: 1px;
+        }
+        
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: fit-content;
+        }
+        
+        .form-submit:hover,
+        .form-submit:focus {
+            background: #1648c0;
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+        /* Footer */
+        
+        footer {
+            background: var(--text);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        footer a:hover,
+        footer a:focus {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            #hero {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header role="banner">
+        <nav aria-label="Primary navigation">
+            <a href="#hero" class="logo" aria-label="Vinay Siddartha – Home">VS</a>
+            <ul class="nav-links" role="list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section id="hero" aria-labelledby="hero-heading">
+            <h1 id="hero-heading">Kandarapu Vinay Siddartha</h1>
+            <p>Web Developer &amp; Thiranex Intern · Building accessible, modern web experiences.</p>
+            <a href="#projects" class="btn" aria-label="View my projects">View Projects</a>
+        </section>
+
+        <!-- About -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <div class="section-divider" role="presentation"></div>
+            <p>
+                I'm a passionate web developer currently interning at <strong>Thiranex – Skill Development &amp; Future Tech</strong>. I love building clean, accessible, and performant websites using modern HTML5, CSS3, and JavaScript. I believe great
+                web experiences are built on solid semantic foundations and inclusive design.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <div class="section-divider" role="presentation"></div>
+            <div class="skills-grid" role="list" aria-label="Technical skills">
+                <span class="skill-tag" role="listitem">HTML5</span>
+                <span class="skill-tag" role="listitem">CSS3</span>
+                <span class="skill-tag" role="listitem">JavaScript</span>
+                <span class="skill-tag" role="listitem">Responsive Design</span>
+                <span class="skill-tag" role="listitem">CSS Grid</span>
+                <span class="skill-tag" role="listitem">Flexbox</span>
+                <span class="skill-tag" role="listitem">ARIA &amp; Accessibility</span>
+                <span class="skill-tag" role="listitem">SEO Basics</span>
+                <span class="skill-tag" role="listitem">Git &amp; GitHub</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <div class="section-divider" role="presentation"></div>
+            <div class="projects-grid">
+
+                <article class="card" aria-labelledby="proj1-title">
+                    <h3 id="proj1-title">Semantic Portfolio Website</h3>
+                    <p>A multi-page personal portfolio built strictly with HTML5 semantic tags and WCAG accessibility guidelines. Scores 100 on Lighthouse.</p>
+                    <a href="#" class="card-link" aria-label="View Semantic Portfolio project">View Project →</a>
+                </article>
+
+                <article class="card" aria-labelledby="proj2-title">
+                    <h3 id="proj2-title">Responsive CSS Architecture</h3>
+                    <p>Transformed a semantic skeleton into a pixel-perfect, responsive design using CSS Grid, Flexbox, and CSS custom variables for theming.</p>
+                    <a href="#" class="card-link" aria-label="View CSS Architecture project">View Project →</a>
+                </article>
+
+                <article class="card" aria-labelledby="proj3-title">
+                    <h3 id="proj3-title">JavaScript To-Do App</h3>
+                    <p>A fully functional task manager with CRUD operations, localStorage persistence, and advanced filtering — built with vanilla JavaScript.</p>
+                    <a href="#" class="card-link" aria-label="View JavaScript To-Do App project">View Project →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Me</h2>
+            <div class="section-divider" role="presentation"></div>
+            <form action="#" method="post" aria-label="Contact form" novalidate>
+
+                <div class="form-group">
+                    <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" autocomplete="name" required aria-required="true" placeholder="Your full name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" placeholder="you@example.com" />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message <span aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" required aria-required="true" placeholder="Write your message here…"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>© 2026 Kandarapu Vinay Siddartha · Built with ❤️ during <a href="https://thiranex.in" target="_blank" rel="noopener noreferrer">Thiranex</a> Internship</p>
+    </footer>
+
+</body>
+
+</html>
